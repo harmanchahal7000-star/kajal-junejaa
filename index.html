@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Join Kajal Juneja on Telegram for cricket, tennis, football, sports updates, and exciting match moments.">
+  <title>Kajal Juneja | Sports Central</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --card: #111a2b;
+      --text: #f5f7ff;
+      --muted: #a2aec2;
+      --green: #baff45;
+      --blue: #20a9ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: rgba(32, 169, 255, 0.10);
+      filter: blur(100px);
+      top: 80px;
+      right: -280px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: rgba(186, 255, 69, 0.08);
+      filter: blur(100px);
+      bottom: 0;
+      left: -250px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .navbar {
+      width: min(1180px, 90%);
+      margin: auto;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      background: var(--green);
+      color: #101727;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      box-shadow: 0 0 25px rgba(186,255,69,0.15);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-top: 3px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 19px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 50px;
+      transition: .25s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--green);
+      color: #101727;
+      border-color: var(--green);
+    }
+
+    .hero {
+      width: min(1180px, 90%);
+      min-height: 670px;
+      margin: auto;
+      padding: 75px 0 85px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(186,255,69,0.08);
+      border: 1px solid rgba(186,255,69,0.20);
+      color: var(--green);
+      border-radius: 50px;
+      padding: 10px 15px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: .35; }
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(70px, 9vw, 120px);
+      line-height: .86;
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    h1 .accent {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      margin-top: 28px;
+    }
+
+    .sports-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 10px 13px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 9px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #dce4f2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .join-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 57px;
+      padding: 0 25px;
+      border-radius: 12px;
+      background: var(--green);
+      color: #101727;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 30px rgba(186,255,69,.12);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 38px rgba(186,255,69,.25);
+    }
+
+    .join-btn svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 57px;
+      padding: 0 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.15);
+      font-size: 13px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 475px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit {
+      width: min(440px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(32,169,255,.14), transparent 60%),
+        repeating-radial-gradient(circle at center, transparent 0 65px, rgba(255,255,255,.045) 66px 67px);
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+    }
+
+    .orbit::before {
+      inset: 9%;
+    }
+
+    .orbit::after {
+      inset: 20%;
+      border-color: rgba(186,255,69,.17);
+    }
+
+    .center-emblem {
+      width: 205px;
+      height: 205px;
+      position: relative;
+      z-index: 2;
+      border-radius: 35px;
+      transform: rotate(-7deg);
+      background: linear-gradient(145deg, #caff69, #8bdb23);
+      color: #101727;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: 0 20px 80px rgba(186,255,69,.15);
+    }
+
+    .center-emblem .ball {
+      font-size: 72px;
+      line-height: 1;
+      transform: rotate(7deg);
+    }
+
+    .center-emblem strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+      margin-top: 9px;
+      transform: rotate(7deg);
+    }
+
+    .sport-icon {
+      width: 77px;
+      height: 77px;
+      display: grid;
+      place-items: center;
+      position: absolute;
+      z-index: 3;
+      border-radius: 23px;
+      background: #141f32;
+      border: 1px solid rgba(255,255,255,.13);
+      font-size: 37px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .sport-icon.cricket {
+      top: 4%;
+      left: 14%;
+    }
+
+    .sport-icon.tennis {
+      top: 25%;
+      right: 1%;
+      animation-delay: .6s;
+    }
+
+    .sport-icon.football {
+      bottom: 5%;
+      right: 13%;
+      animation-delay: 1.2s;
+    }
+
+    .sport-icon.trophy {
+      bottom: 20%;
+      left: 1%;
+      animation-delay: .9s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    .visual-caption {
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .sports-section {
+      background: rgba(255,255,255,.025);
+      border-top: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 75px 0;
+    }
+
+    .section-inner {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading .mini-label {
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(38px, 5vw, 58px);
+      text-transform: uppercase;
+      margin-top: 10px;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .sport-card {
+      padding: 29px;
+      background: linear-gradient(145deg, rgba(24,36,56,.9), rgba(14,22,36,.9));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .sport-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(186,255,69,.3);
+    }
+
+    .card-emoji {
+      font-size: 37px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .sport-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .sport-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      margin-top: 10px;
+    }
+
+    .bottom-cta {
+      width: min(1000px, 90%);
+      margin: 75px auto;
+      padding: 55px 25px;
+      border-radius: 25px;
+      text-align: center;
+      border: 1px solid rgba(186,255,69,.17);
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(186,255,69,.09), transparent 65%),
+        #0e1726;
+    }
+
+    .bottom-cta .telegram-mark {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .bottom-cta p {
+      max-width: 490px;
+      margin: 17px auto 26px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 26px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: space-between;
+      align-items: center;
+      color: #7f8ba0;
+      font-size: 11px;
+    }
+
+    footer strong {
+      color: #dce4f2;
+    }
+
+    .footer-link {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-top: 70px;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sports-tags,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 410px;
+      }
+
+      .orbit {
+        width: min(390px, 90vw);
+      }
+
+      .center-emblem {
+        width: 175px;
+        height: 175px;
+      }
+
+      .center-emblem .ball {
+        font-size: 60px;
+      }
+
+      .sport-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 30px;
+        border-radius: 19px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .navbar {
+        min-height: 75px;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-link {
+        padding: 10px 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 55px;
+        padding-bottom: 60px;
+      }
+
+      h1 {
+        font-size: clamp(66px, 16vw, 90px);
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .orbit {
+        width: min(320px, 90vw);
+      }
+
+      .center-emblem {
+        width: 145px;
+        height: 145px;
+        border-radius: 28px;
+      }
+
+      .center-emblem .ball {
+        font-size: 50px;
+      }
+
+      .center-emblem strong {
+        font-size: 21px;
+      }
+
+      .sport-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+        border-radius: 16px;
+      }
+
+      .visual-caption {
+        font-size: 8px;
+        letter-spacing: 2px;
+      }
+
+      .sports-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sport-card {
+        padding: 25px;
+      }
+
+      .sports-section {
+        padding: 60px 0;
+      }
+
+      .bottom-cta {
+        margin: 50px auto;
+        padding: 40px 20px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+
+      footer {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" id="home">
+
+    <header class="navbar">
+      <a href="#home" class="brand" aria-label="Kajal Juneja home">
+        <span class="brand-icon">🏆</span>
+        <span>
+          KAJAL JUNEJA
+          <small>SPORTS CENTRAL</small>
+        </span>
+      </a>
+
+      <a class="nav-link" href="https://t.me/kajaljunej" target="_blank" rel="noopener noreferrer">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.7 3.3a1.8 1.8 0 0 0-1.9-.3L3 9.5c-1.2.5-1.2 2.2.1 2.6l4.3 1.4 1.6 5.1c.3 1 1.6 1.3 2.3.5l2.5-2.7 4.4 3.2c.9.6 2.1.1 2.3-1l2.1-13.5a1.9 1.9 0 0 0-.9-1.8ZM9 13l8.6-6.1-6.9 7.5-.4 3.4L9 13Z"/>
+        </svg>
+        JOIN TELEGRAM
+      </a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="live-dot"></span>
+            YOUR DAILY SPORTS DESTINATION
+          </div>
+
+          <h1>
+            FEEL THE
+            <span class="accent">GAME.</span>
+            LIVE THE
+            <span>SPORT.</span>
+          </h1>
+
+          <p class="hero-description">
+            One channel. Every passion. Welcome to Kajal Juneja —
+            your destination for the excitement of cricket, the intensity
+            of tennis, and the beautiful game of football.
+          </p>
+
+          <div class="sports-tags">
+            <span class="tag">🏏 CRICKET</span>
+            <span class="tag">🎾 TENNIS</span>
+            <span class="tag">⚽ FOOTBALL</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="join-btn" href="https://t.me/kajaljunej" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.7 3.3a1.8 1.8 0 0 0-1.9-.3L3 9.5c-1.2.5-1.2 2.2.1 2.6l4.3 1.4 1.6 5.1c.3 1 1.6 1.3 2.3.5l2.5-2.7 4.4 3.2c.9.6 2.1.1 2.3-1l2.1-13.5a1.9 1.9 0 0 0-.9-1.8ZM9 13l8.6-6.1-6.9 7.5-.4 3.4L9 13Z"/>
+              </svg>
+              JOIN TELEGRAM CHANNEL
+            </a>
+
+            <a class="secondary-btn" href="#sports">EXPLORE SPORTS ↓</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Cricket, tennis and football themed sports illustration">
+          <div class="orbit">
+            <div class="center-emblem">
+              <span class="ball">🏆</span>
+              <strong>GAME ON</strong>
+            </div>
+
+            <div class="sport-icon cricket" aria-label="Cricket">🏏</div>
+            <div class="sport-icon tennis" aria-label="Tennis">🎾</div>
+            <div class="sport-icon football" aria-label="Football">⚽</div>
+            <div class="sport-icon trophy" aria-label="Champion">🥇</div>
+          </div>
+
+          <div class="visual-caption">PASSION • ACTION • VICTORY</div>
+        </div>
+      </section>
+
+      <section class="sports-section" id="sports">
+        <div class="section-inner">
+          <div class="section-heading">
+            <span class="mini-label">THREE SPORTS. ONE COMMUNITY.</span>
+            <h2>WHAT'S YOUR GAME?</h2>
+            <p>Explore the sports you love and join the conversation.</p>
+          </div>
+
+          <div class="sports-grid">
+            <article class="sport-card">
+              <span class="card-emoji">🏏</span>
+              <h3>Cricket Fever</h3>
+              <p>
+                From unforgettable boundaries to thrilling finishes,
+                celebrate the moments that make cricket special.
+              </p>
+            </article>
+
+            <article class="sport-card">
+              <span class="card-emoji">🎾</span>
+              <h3>Tennis Action</h3>
+              <p>
+                Experience powerful serves, incredible rallies, and
+                the drama of every match point.
+              </p>
+            </article>
+
+            <article class="sport-card">
+              <span class="card-emoji">⚽</span>
+              <h3>Football Passion</h3>
+              <p>
+                Feel the energy of the beautiful game, from spectacular
+                goals to unforgettable team moments.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-cta">
+        <div class="telegram-mark">✈️</div>
+        <span class="mini-label" style="color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: 3px;">
+          YOUR NEXT SPORTS MOMENT STARTS HERE
+        </span>
+        <h2>DON'T JUST WATCH.<br>BE PART OF IT.</h2>
+        <p>
+          Join Kajal Juneja on Telegram and connect with a community
+          that shares your love for sports.
+        </p>
+
+        <a class="join-btn" href="https://t.me/kajaljunej" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.7 3.3a1.8 1.8 0 0 0-1.9-.3L3 9.5c-1.2.5-1.2 2.2.1 2.6l4.3 1.4 1.6 5.1c.3 1 1.6 1.3 2.3.5l2.5-2.7 4.4 3.2c.9.6 2.1.1 2.3-1l2.1-13.5a1.9 1.9 0 0 0-.9-1.8ZM9 13l8.6-6.1-6.9 7.5-.4 3.4L9 13Z"/>
+          </svg>
+          JOIN KAJAL JUNEJA
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> <strong>Kajal Juneja</strong> · Sports Central</span>
+      <a class="footer-link" href="https://t.me/kajaljunej" target="_blank" rel="noopener noreferrer">
+        Find us on Telegram ↗
+      </a>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
